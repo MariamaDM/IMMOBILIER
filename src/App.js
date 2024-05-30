@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Dashboard from './components/Dashboard/Dashboard';
-import Locataire from './components/Locataire/Locataire'; 
+import Locataire from './components/Locataire/Locataire';
+import Proprietaire from './components/Proprietaire/Proprietaire'; 
 
 
 
@@ -22,6 +23,7 @@ const App = () => {
                 <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/locataire" element={<Locataire />} />
+            <Route path="/proprietaire" element={<Proprietaire />} />
             {/* Ajoutez d'autres routes ici si nécessaire */}
           </Routes>
                  

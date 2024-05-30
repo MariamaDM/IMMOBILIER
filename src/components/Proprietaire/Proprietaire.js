@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import'./Locataire.css';
+import'./Proprietaire.css';
 
-const Locataire = () => {
+const Proprietaire = () => {
   const [newTenant, setNewTenant] = useState({
     nom: '',
     prenom: '',
     adresse: '',
     email: '',
-    telephone: '',
-    date_entree: '',
+    telephone: '',  
   });
 
   const [editingTenant, setEditingTenant] = useState(null);
@@ -29,7 +28,7 @@ const Locataire = () => {
       // Ajouter un nouveau locataire
       // Ajoutez votre logique d'ajout ici
       setTenants([...tenants, newTenant]);
-      setNewTenant({ nom: '', prenom: '', adresse: '', email: '', telephone: '', date_entree: '' }); // Réinitialiser le formulaire d'ajout
+      setNewTenant({ nom: '',  prenom: '',  adresse: '', email: '', telephone: '' }); // Réinitialiser le formulaire d'ajout
     }
   };
 
@@ -47,30 +46,30 @@ const Locataire = () => {
 
   return (
     <div>
-      <h2>Gestion des Locataires</h2>
+      <h2>Gestion des Proprietaires</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="nom"
           value={newTenant.nom}
           onChange={handleInputChange}
-          placeholder="Nom du locataire"
+          placeholder="Nom du proprietaire"
           required
         />
-         <input
+        <input
           type="text"
           name="prenom"
-          value={newTenant.prenom}
+          value={newTenant.nom}
           onChange={handleInputChange}
-          placeholder="Prenom du locataire"
+          placeholder="Prenom du proprietaire "
           required
         />
-         <input
+        <input
           type="text"
           name="adresse"
-          value={newTenant.adresse}
+          value={newTenant.nom}
           onChange={handleInputChange}
-          placeholder="Adresse du locataire"
+          placeholder="Adresse du proprietaire"
           required
         />
         <input
@@ -78,31 +77,24 @@ const Locataire = () => {
           name="email"
           value={newTenant.email}
           onChange={handleInputChange}
-          placeholder="Email du locataire"
+          placeholder="Email du proprietaire"
           required
         />
         <input
           type="tel"
           name="telephone"
-          value={newTenant.telephone}
+          value={newTenant.phoneNumber}
           onChange={handleInputChange}
-          placeholder="Numéro de téléphone du locataire"
+          placeholder="Numéro de téléphone du proprietaire"
           required
         />
-        <input
-          type="date"
-          name="date_entree"
-          value={newTenant.date_entree}
-          onChange={handleInputChange}
-          placeholder="Date d'entrée du locataire"
-          required
-        />
+        
         <button type="submit">{editingTenant ? 'Modifier' : 'Ajouter'}</button>
       </form>
       <ul>
         {tenants.map((tenant, index) => (
           <li key={index}>
-            {tenant.name} - {tenant.email} - {tenant.phoneNumber} - {tenant.entryDate}
+            {tenant.nom} - {tenant.email} - {tenant.telephone} - {tenant.prenom} - {tenant.adresse} 
             <button onClick={() => handleEdit(tenant)}>Modifier</button>
             <button onClick={() => handleDelete(tenant)}>Supprimer</button>
           </li>
@@ -112,4 +104,4 @@ const Locataire = () => {
   );
 };
 
-export default Locataire;
+export default Proprietaire;
